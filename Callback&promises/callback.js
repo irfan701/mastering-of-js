@@ -1,4 +1,7 @@
+/*
+    Order with callback
 
+ */
 //To make hof
 function register(callback){
     setTimeout(function () {
@@ -12,14 +15,16 @@ function sendEmail(callback){
         callback()
     },2000)
 }
-function login(){
+function login(callback){
     setTimeout(function () {
         console.log("Login End")
+        callback()
     },3000)
 }
-function getUserData(){
+function getUserData(callback){
     setTimeout(function () {
         console.log("Get User Data")
+        callback()
     },1000)
 }
 function displayUserData(){
@@ -28,11 +33,17 @@ function displayUserData(){
     },1000)
 }
 
+
+//Nesting Function Or Callback-Hell
 register(function () {
     sendEmail(function () {
-        login()
-        getUserData()
-        displayUserData()
+        login(function () {
+            getUserData(function () {
+                displayUserData()
+            })
+
+        })
+
     })
 
 })
