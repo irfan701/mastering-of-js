@@ -1,14 +1,15 @@
 
-
-function register(){
+//To make hof
+function register(callback){
     setTimeout(function () {
     console.log("Register End")
-    },1000)
+        callback()
+    },2000)
 }
 function sendEmail(){
     setTimeout(function () {
         console.log("Email End")
-    },2000)
+    },1000)
 }
 function login(){
     setTimeout(function () {
@@ -26,10 +27,12 @@ function displayUserData(){
     },1000)
 }
 
-register()
-sendEmail()
-login()
-getUserData()
-displayUserData()
+register(function () {
+    sendEmail()
+    login()
+    getUserData()
+    displayUserData()
+})
+
 
 console.log("Other application work!")
