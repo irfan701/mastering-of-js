@@ -6,15 +6,16 @@ function register(callback){
         callback()
     },2000)
 }
-function sendEmail(){
+function sendEmail(callback){
     setTimeout(function () {
         console.log("Email End")
-    },1000)
+        callback()
+    },2000)
 }
 function login(){
     setTimeout(function () {
         console.log("Login End")
-    },1000)
+    },3000)
 }
 function getUserData(){
     setTimeout(function () {
@@ -28,10 +29,12 @@ function displayUserData(){
 }
 
 register(function () {
-    sendEmail()
-    login()
-    getUserData()
-    displayUserData()
+    sendEmail(function () {
+        login()
+        getUserData()
+        displayUserData()
+    })
+
 })
 
 
