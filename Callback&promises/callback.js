@@ -1,6 +1,6 @@
 /*
+    Old way callback
     Order with callback
-
  */
 //To make hof
 function register(callback){
