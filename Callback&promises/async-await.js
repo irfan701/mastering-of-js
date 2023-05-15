@@ -16,8 +16,9 @@ function register(){
 function sendEmail(){
     return new Promise((resolve,reject)=>{
     setTimeout(function () {
+
+        return reject("Error while sending...")
         console.log("Email End")
-        resolve()
     },5000)
     })
 }
@@ -82,6 +83,8 @@ async function authenticate() {
 
 authenticate().then(()=>{
     console.log("All Set")
+}).catch((err)=>{
+    console.log(err)
 });
 
 console.log("Other application work!")
