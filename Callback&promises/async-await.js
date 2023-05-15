@@ -80,6 +80,8 @@ async function authenticate() {
 
 }  //this function automatic promise return korey
 
-authenticate();
+authenticate().then(()=>{
+    console.log("All Set")
+});
 
 console.log("Other application work!")
