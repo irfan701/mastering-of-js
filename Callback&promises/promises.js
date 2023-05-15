@@ -14,25 +14,36 @@ function register(){
 
 }
 function sendEmail(){
+    return new Promise((resolve,reject)=>{
     setTimeout(function () {
         console.log("Email End")
+        resolve()
     },5000)
+    })
 }
 function login(){
+    return new Promise((resolve,reject)=>{
     setTimeout(function () {
         console.log("Login End")
+        resolve()
     },3000)
+    })
 }
-function getUserData(callback){
+function getUserData(){
+    return new Promise((resolve,reject)=>{
     setTimeout(function () {
         console.log("Get User Data")
-        callback()
+        resolve()
     },1000)
+    })
 }
 function displayUserData(){
+    return new Promise((resolve,reject)=>{
     setTimeout(function () {
         console.log("User Data Displayed")
+        resolve()
     },1000)
+    })
 }
 
 
@@ -49,8 +60,9 @@ function displayUserData(){
 //     })
 //
 // })
-
+// VS
 
 console.log("Other application work!")
 
-register().then(sendEmail).then(login)
+//Order Maintained
+register().then(sendEmail).then(login).then(getUserData).then(displayUserData)
