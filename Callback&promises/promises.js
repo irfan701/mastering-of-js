@@ -7,8 +7,9 @@
 function register(){
     return new Promise((resolve,reject)=>{
         setTimeout(function () {
+           return reject("Error While Registering... ...")
             console.log("Register End")
-            resolve()
+
         },1000)
     })
 
@@ -65,4 +66,6 @@ function displayUserData(){
 console.log("Other application work!")
 
 //Order Maintained
-register().then(sendEmail).then(login).then(getUserData).then(displayUserData)
+register().then(sendEmail).then(login).then(getUserData).then(displayUserData).catch((err)=>{
+    console.log("Err: "+ err)
+})
