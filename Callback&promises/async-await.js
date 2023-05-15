@@ -17,8 +17,9 @@ function sendEmail(){
     return new Promise((resolve,reject)=>{
     setTimeout(function () {
 
-        return reject("Error while sending...")
+       // return reject("Error while sending...")
         console.log("Email End")
+        resolve()
     },5000)
     })
 }
@@ -26,7 +27,7 @@ function login(){
     return new Promise((resolve,reject)=>{
     setTimeout(function () {
         console.log("Login End")
-        resolve()
+        resolve("Success")
     },3000)
     })
 }
@@ -95,9 +96,10 @@ async function authenticate() {
     try{
         await register();
         await sendEmail();
-        await login();
+       const log= await login();
         await getUserData();
-        await displayUserData();  
+        await displayUserData();
+        console.log(log)
     }catch (e) {
         console.log(e)
         throw new Error();
