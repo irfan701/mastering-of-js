@@ -72,12 +72,37 @@ function displayUserData(){
 
 //Async -await
 
+// async function authenticate() {
+//     await register();
+//     await sendEmail();
+//     await login();
+//     await getUserData();
+//     await displayUserData();
+//
+// }  //this function automatic promise return korey
+//
+// authenticate().then(()=>{
+//     console.log("All Set")
+// }).catch((err)=>{
+//     console.log(err)
+// });
+//
+// console.log("Other application work!")
+
+
+
 async function authenticate() {
-    await register();
-    await sendEmail();
-    await login();
-    await getUserData();
-    await displayUserData();
+    try{
+        await register();
+        await sendEmail();
+        await login();
+        await getUserData();
+        await displayUserData();  
+    }catch (e) {
+        console.log(e)
+        throw new Error();
+    }
+   
 
 }  //this function automatic promise return korey
 
